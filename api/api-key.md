@@ -10,9 +10,7 @@
 
 ### Sign up for an API Key here:
 
-\(Typeform\)
-
-
+{% embed url="https://signup.api.totle.com/" %}
 
 ### Support
 
