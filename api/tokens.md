@@ -15,32 +15,6 @@ This endpoint returns a map of token names to contract addresses.
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="tokens" type="string" required=false %}
-The list of known ERC-20 tokens
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="name" type="string" required=false %}
-The long name of the token
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="symbol" type="string" required=false %}
-The ticker symbol of the token
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="address" type="string" required=false %}
-The contract address that should be used to identify the token in API calls
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="decimals" type="number" required=false %}
-The number of decimal places implemented by the tokens
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="tradeable" type="boolean" required=false %}
-Whether the token can be traded on Totle
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
 
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
@@ -63,6 +37,15 @@ Token information was successfully retrieved.
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
+| Response Parameter | Description  |
+| :--- | :--- |
+| tokens | The list of known ERC-20 tokens |
+| name | The long name of the token |
+| symbol | The ticker symbol of the token |
+| address | The contract address that should be used to identify the token in API calls |
+| decimals | The number of decimal places implemented by the tokens |
+| tradeable | Whether the token can be traded on Totle |
 
 {% tabs %}
 {% tab title="cURL" %}
