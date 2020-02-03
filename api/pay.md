@@ -32,27 +32,27 @@ Your wallet address
 Transaction/trade-related information
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="exchanges" type="object" required=false %}
+{% api-method-parameter name="config.exchanges" type="object" required=false %}
 Information about the exchanges to be used \(or not used\)
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="list" type="array" required=false %}
+{% api-method-parameter name="config.exchanges.list" type="array" required=false %}
 IDs of the exchanges to whitelist/blacklist. Use /exchanges endpoint for IDs used \(array of integers\)
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="type" type="string" required=false %}
+{% api-method-parameter name="config.exchanges.type" type="string" required=false %}
 Whether the exchange should be whitelisted/blacklisted. Use `white` for whitelisting and `black` for blacklisting
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="transactions" type="boolean" required=false %}
+{% api-method-parameter name="config.transactions" type="boolean" required=false %}
 Whether a response is returned or not \(allows the submission of a request for accurate pricing information even if there's no intention to execute any trades\)
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="fillNonce" type="boolean" required=false %}
+{% api-method-parameter name="config.fillNonce" type="boolean" required=false %}
 Whether the `nonce` field in the response is populated or not \(allows for manual population of `nonce` in cases where there are multiple transactions present\)
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="skipBalanceChecks" type="boolean" required=false %}
+{% api-method-parameter name="config.skipBalanceChecks" type="boolean" required=false %}
 Whether the API should validate the source asset balance of the wallet given in the address field
 {% endapi-method-parameter %}
 
@@ -60,23 +60,23 @@ Whether the API should validate the source asset balance of the wallet given in 
 Information about the token being traded for another token \(if necessary\) and then transferred to the wallet specified
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="sourceAsset" type="string" required=true %}
+{% api-method-parameter name="swap.sourceAsset" type="string" required=true %}
 The token to be sold
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="destinationAsset" type="string" required=true %}
+{% api-method-parameter name="swap.destinationAsset" type="string" required=true %}
 The token to be bought
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="destinationAmount" type="integer" required=true %}
+{% api-method-parameter name="swap.destinationAmount" type="integer" required=true %}
 The amount of token to be bought \(corresponds to the token amount to be sold\)
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="maxSource" type="integer" required=false %}
+{% api-method-parameter name="swap.maxSource" type="integer" required=false %}
 The maximum amount of token to be sold when all costs are factored in
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="destinationAddress" type="string" required=true %}
+{% api-method-parameter name="swap.destinationAddress" type="string" required=true %}
 The wallet to which the token should be deposited
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}

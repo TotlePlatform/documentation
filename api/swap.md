@@ -32,27 +32,27 @@ Your wallet address
 Transaction/trade-related information
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="exchanges" type="object" required=false %}
+{% api-method-parameter name="config.exchanges" type="object" required=false %}
 Information about the exchanges to be used \(or not used\)
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="list" type="array" required=false %}
+{% api-method-parameter name="config.exchanges.list" type="array" required=false %}
 IDs of the exchanges to whitelist/blacklist. Use /exchanges endpoint for IDs used \(an array of integers\)
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="type" type="string" required=false %}
+{% api-method-parameter name="config.exchanges.type" type="string" required=false %}
 Whether the exchange should be whitelisted/blacklisted. Use `white` for whitelisting and `black` for blacklisting
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="transactions" type="boolean" required=false %}
+{% api-method-parameter name="config.transactions" type="boolean" required=false %}
 Whether a response is returned or not \(allows the submission of a request for accurate pricing information even if there's no intention to execute any trades\)
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="fillNonce" type="boolean" required=false %}
+{% api-method-parameter name="config.fillNonce" type="boolean" required=false %}
 Whether the `nonce` field in the response is populated or not \(allows for manual population of `nonce` in cases where there are multiple transactions present\)
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="skipBalanceChecks" type="boolean" required=false %}
+{% api-method-parameter name="config.skipBalanceChecks" type="boolean" required=false %}
 Whether the API should validate the source asset balance of the wallet given in the address field
 {% endapi-method-parameter %}
 
@@ -60,31 +60,31 @@ Whether the API should validate the source asset balance of the wallet given in 
 Information about the single trading pair to be executed \(**submit either swap or swaps; do not submit both to the API**\)
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="sourceAsset" type="string" required=true %}
+{% api-method-parameter name="swap.sourceAsset" type="string" required=true %}
 Identifier of the token to sell
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="sourceAmount" type="integer" required=true %}
+{% api-method-parameter name="swap.sourceAmount" type="integer" required=true %}
 The amount of tokens to sell in the token's base unit of decimals \(include either sourceAmount or destinationAmount\)
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="destinationAmount" type="integer" required=true %}
+{% api-method-parameter name="swap.destinationAmount" type="integer" required=true %}
 The amount of tokens to buy in the token's base unit of decimals \(include either sourceAmount or destinationAmount\) 
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="isOptional" type="boolean" required=false %}
+{% api-method-parameter name="swap.isOptional" type="boolean" required=false %}
 Whether this trading pair can be skipped or not \(default is false\)
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="minFillPercent" type="integer" required=false %}
+{% api-method-parameter name="swap.minFillPercent" type="integer" required=false %}
 Percentage of minimum acceptable destination amount to receive. Value must be between 1-100, inclusive
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="maxMarketSlippagePercent" type="integer" required=false %}
+{% api-method-parameter name="swap.maxMarketSlippagePercent" type="integer" required=false %}
 Percentage of maximum acceptable market price slippage that can occur based off of 0.1 unit of source token while finding best rates off-chain. Value must be between 1-99, inclusive
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="maxExecutionSlippagePercent" type="integer" required=false %}
+{% api-method-parameter name="swap.maxExecutionSlippagePercent" type="integer" required=false %}
 Percentage of maximum acceptable slippage of market rate from the time the API finds the rate and executing swap on-chain. Value must be between 1-99, inclusive
 {% endapi-method-parameter %}
 

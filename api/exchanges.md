@@ -10,33 +10,11 @@ description: Retrieve information about exchanges connected to Totle.
 {% endapi-method-summary %}
 
 {% api-method-description %}
-This endpoint returns a map of exchange names to exchange IDs.
+This endpoint returns a map of exchange names to exchange IDs. 
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="exchanges" type="object" required=false %}
-The list of exchanges on which Totle trades
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="id" type="number" required=false %}
-The ID of the exchange 
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="name" type="string" required=false %}
-The common name of the exchange
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="enabled" type="boolean" required=false %}
-Wether the `swap`endpoint is can return trades that will settle on that exchange
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="iconURL" type="string" required=false %}
-URL of the source for exchange's icon
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
 
 {% api-method-response %}
 {% api-method-response-example httpCode=200 %}
@@ -70,6 +48,14 @@ Exchange information successfully retrieved.
 {% endapi-method-response %}
 {% endapi-method-spec %}
 {% endapi-method %}
+
+| Parameter Response | Description |
+| :--- | :--- |
+| exchanges | The list of exchanges on which Totle trades |
+| id | The ID of the exchange  |
+| name | The common name of the exchange |
+| enabled | Whether the `swap` endpoint can return trades that will settle on that exchange |
+| iconURL | URL of the source for exchange's icon |
 
 {% tabs %}
 {% tab title="cURL" %}
