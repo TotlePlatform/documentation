@@ -10,13 +10,13 @@ With Totle, gain reliable access to all popular Decentralized Finance \(DeFi\) a
   
 To view Totle's source code visit the [Totle Github page](https://github.com/TotlePlatform). 
 
-To access unlimited API calls, earn fees, and become a Totle Partner, [sign up for an API Key](api/api-key.md).
+To access unlimited API calls, earn fees, and become a Totle Partner, [sign-up for an API Key](api/api-key.md).
 
 ## Copy and Paste Widget
 
 Instantly add trading functionality to any web interface. [Totle Widget](copy-and-paste-widget.md) allows your visitors to connect MetaMask and trade ETH and popular ERC-20s at the best pricing available.
 
-![](.gitbook/assets/screen-shot-2020-01-21-at-3.42.55-pm.png)
+![](.gitbook/assets/screen-shot-2020-02-06-at-3.37.11-pm.png)
 
 **This takes two minutes to integrate** and only requires that you copy and paste a snippet of code into your HTML.
 

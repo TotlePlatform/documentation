@@ -22,9 +22,11 @@ To create a new contract and deploy it, you'll need to provide:
 * The fee \(as a percentage\) that you would like to charge per transactions
 * The wallet address to which you would like fees to be paid to
 
-![](../.gitbook/assets/totle-console.png)
+![](../.gitbook/assets/screen-shot-2020-02-06-at-3.35.05-pm.png)
 
 Once you have deployed your partner contract, you can include its contract address in your API calls using the `partnerContract` in the payload body to route fees for successful transactions to the contract.
 
-**You can claim the fees you earn at any time using the** [**Developer Console**](http://console.totle.com/)**.**
+You can claim the fees you earn at any time using the [Developer Console](http://console.totle.com/).
+
+**We are flexible with fee structures. Get in contact with us and we'll happily create a custom contract to meet your goals. Email:** [**partners@totle.com**](mailto:partners@totle.com)\*\*\*\*
 

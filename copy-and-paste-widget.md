@@ -39,7 +39,7 @@ You can do this by copy and pasting the snippet of code below into the `body` se
 
 This is an image of what the Totle Widget will look like in your website. 
 
-![](.gitbook/assets/screen-shot-2020-01-21-at-3.42.55-pm.png)
+![](.gitbook/assets/screen-shot-2020-02-06-at-3.37.11-pm.png)
 
 To try out a live Totle Widget, follow this link: **swap.totle.com**
 

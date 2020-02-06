@@ -47,3 +47,5 @@ The API has a default partner contract with a `partnerPercentage` of 0 and a `to
 
 If you include your partner contract in your request, the fees will be split evenly with Totle \(the minimum Totle will assess is 0.25%\).
 
+**Do these fees not work for your business? Get in contact with us and we'll happily create a custom contract to meet your goals. Email:** [**partners@totle.com**](mailto:partners@totle.com)\*\*\*\*
+

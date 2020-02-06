@@ -5,7 +5,7 @@
 **However, having an API Key offers you additional benefits such as:**
 
 * No rate limits
-* The ability to earn fees through Totle's affiliate program
+* The ability to earn fees with Totle through custom contracts
 * Extended phone and chat support
 
 ### Sign up for an API Key here:
