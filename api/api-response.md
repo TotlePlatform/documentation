@@ -239,9 +239,9 @@ The expiration section contains the expiration block and the estimated expiratio
 
 ## API Parameters
 
-| aParameter | Description |
+| Parameter | Description |
 | :--- | :--- |
-| success | Whether or not the API response was successful |
+| success | Whether or not the API request was successful |
 | response | The object that contains the response details |
 | response.id | Unique identifier for this request/response pair |
 | response.summary\[\] | Array of human-readable details of the requested swaps' best route. Contains information in `Route Details` |
