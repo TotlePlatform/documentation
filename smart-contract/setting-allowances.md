@@ -20,7 +20,7 @@ Clients who wish to sell ERC20 tokens should execute the approve method of each 
 
 ```javascript
 const contract = new web3.eth.Contract(ERC20_ABI, TOKEN_ADDRESS)
-const newAllowance = String((2 ** 256) - 1)
+const newAllowance = String((2n ** 256n) - 1n) //Using BigInt to avoid precision loss
 const data = contract.methods.approve(TOKEN_TRANSFER_PROXY_ADDRESS, newAllowance).encodeABI()
 const txPromise = wallet.sendTransaction({
     to: TOKEN_ADDRESS,
