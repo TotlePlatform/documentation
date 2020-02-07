@@ -41,7 +41,7 @@ This is an image of what the Totle Widget will look like in your website.
 
 ![](.gitbook/assets/screen-shot-2020-02-06-at-3.37.11-pm.png)
 
-To try out a live Totle Widget, follow this link: **swap.totle.com**
+To try out a live Totle Widget, follow this link: [**widget.totle.com**](https://widget.totle.com)\*\*\*\*
 
 ### Support
 
