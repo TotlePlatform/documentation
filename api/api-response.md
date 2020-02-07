@@ -255,9 +255,9 @@ The expiration section contains the expiration block and the estimated expiratio
 | response.summary\[\].trades\[\] | Array of `Trade Details` that make up the route  |
 | response.summary\[\].totleFee | `Fee Details` of the fee taken by Totle for facilitating the transaction |
 | response.summary\[\].partnerFee | `Fee Details` of the fee taken by third-party partners who deploy a partner contract on Totle's platform |
-| response.transactions\[\] | Array of transaction objects auto generated to perform the swaps described above in the summary. If multiple transaction objects are returned, the ones preceding the `swap` transaction will be `token approval` transactions |
+| response.transactions\[\] | Array of transaction objects auto-generated to perform the swaps described above in the summary. If multiple transaction objects are returned, the ones preceding the `swap` transaction will be `token approval` transactions |
 | response.transactions\[\].type | The type of transaction to be performed \(e.g., `swap` or `approval`\) |
-| response.transactions\[\].tx | A full auto generated transaction object to be signed and submitted on-chain |
+| response.transactions\[\].tx | A full auto-generated transaction object to be signed and submitted on-chain |
 | response.transactions\[\].tx.to | Contract address to which the transaction is sent to |
 | response.transactions\[\].tx.from | The user's wallet address from which the transaction will originate from |
 | response.transactions\[\].tx.value | The Ether value to be included in the transaction |
