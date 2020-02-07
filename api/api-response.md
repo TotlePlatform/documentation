@@ -259,7 +259,7 @@ The expiration section contains the expiration block and the estimated expiratio
 | response.transactions\[\].type | The type of transaction to be performed \(e.g., `swap` or `approval`\) |
 | response.transactions\[\].tx | A full auto-generated transaction object to be signed and submitted on-chain |
 | response.transactions\[\].tx.to | Contract address to which the transaction is sent to |
-| response.transactions\[\].tx.from | The user's wallet address from which the transaction will originate from |
+| response.transactions\[\].tx.from | The user's wallet address from which the transaction will originate |
 | response.transactions\[\].tx.value | The Ether value to be included in the transaction |
 | response.transactions\[\].tx.data | The encoded payload data the contract needs to execute the swaps |
 | response.transactions\[\].tx.gas | The suggested gas price for the transaction payload \(users are strongly discouraged to modify this value\) |
