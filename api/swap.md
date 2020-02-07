@@ -16,7 +16,7 @@ The endpoint allows you to trade one token for the equivalent value of another t
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-body-parameters %}
-{% api-method-parameter name="apiKey" type="string" required=true %}
+{% api-method-parameter name="apiKey" type="string" required=false %}
 Your Totle partner identifier
 {% endapi-method-parameter %}
 
@@ -24,7 +24,7 @@ Your Totle partner identifier
 The Smart Contract address if you're a Totle partner
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="address" type="string" required=true %}
+{% api-method-parameter name="address" type="string" required=false %}
 Your wallet address
 {% endapi-method-parameter %}
 
@@ -61,7 +61,7 @@ Information about the single trading pair to be executed \(**submit either swap 
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="swap.sourceAsset" type="string" required=true %}
-Identifier of the token to sell
+Identifier of the token to sell \(either token address or symbol\)
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="swap.sourceAmount" type="integer" required=true %}
@@ -88,7 +88,7 @@ Percentage of maximum acceptable market price slippage that can occur based off 
 Percentage of maximum acceptable slippage of market rate from the time the API finds the rate and executing swap on-chain. Value must be between 1-99, inclusive
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="swaps" type="object" required=true %}
+{% api-method-parameter name="swaps" type="array" required=true %}
 Your Totle Information about the trading pairs \(two or more\) to be executed \(**submit either swap or swaps; do not submit both to the API**\) identifier
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
