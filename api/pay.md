@@ -10,26 +10,26 @@ description: Execute a swap and a payment in a single transaction.
 {% endapi-method-summary %}
 
 {% api-method-description %}
-This endpoint allows allows payments to be made to the specified party.
+This endpoint allows payments to be made to a specified address.
 {% endapi-method-description %}
 
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-body-parameters %}
-{% api-method-parameter name="apiKey" type="string" required=true %}
+{% api-method-parameter name="apiKey" type="string" required=false %}
 The Totle partner ID
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="partnerContract" type="string" required=false %}
-The Smart Contract address if you're a Totle partner
+The smart conntract address if you're a Totle partner
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="address" type="string" required=true %}
-Your wallet address
+{% api-method-parameter name="address" type="string" required=false %}
+The msg.sender wallet address. Although optional, you will only receive a payload if you include the address
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="config" type="object" required=false %}
-Transaction/trade-related information
+Transaction/trade-related configuration options
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="config.exchanges" type="object" required=false %}
@@ -37,39 +37,39 @@ Information about the exchanges to be used \(or not used\)
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="config.exchanges.list" type="array" required=false %}
-IDs of the exchanges to whitelist/blacklist. Use /exchanges endpoint for IDs used \(array of integers\)
+IDs of the exchanges to whitelist/blacklist. Use /exchanges endpoint for IDs to use \(array of integers\)
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="config.exchanges.type" type="string" required=false %}
-Whether the exchange should be whitelisted/blacklisted. Use `white` for whitelisting and `black` for blacklisting
+Whether the exchange\(s\) should be whitelisted/blacklisted. Use `white` for whitelisting and `black` for blacklisting
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="config.transactions" type="boolean" required=false %}
-Whether a response is returned or not \(allows the submission of a request for accurate pricing information even if there's no intention to execute any trades\)
+Whether transaction objects are returned or not. Setting this to `true` will require you to include `address`. If you just want to get the rate, set this to false
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="config.fillNonce" type="boolean" required=false %}
-Whether the `nonce` field in the response is populated or not \(allows for manual population of `nonce` in cases where there are multiple transactions present\)
+Whether the `nonce` field in the transaction objects are populated or not. Defaults to `true`
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="config.skipBalanceChecks" type="boolean" required=false %}
-Whether the API should validate the source asset balance of the wallet given in the address field
+Whether the API should validate the source asset balance of the wallet given in the address field. Defaults to `true`
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="swap" type="object" required=true %}
-Information about the token being traded for another token \(if necessary\) and then transferred to the wallet specified
+Information about the single swap to be executed \(**submit either `swap` OR `swaps` ; do not submit both to the API**\)
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="swap.sourceAsset" type="string" required=true %}
-The token to be sold
+Identifier of the token to sell \(either token address OR symbol\)
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="swap.destinationAsset" type="string" required=true %}
-The token to be bought
+Identifier of the token to buy \(either token address OR symbol\)
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="swap.destinationAmount" type="integer" required=true %}
-The amount of token to be bought \(corresponds to the token amount to be sold\)
+The amount of tokens to be paid to the `destinationAddress`
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="swap.maxSource" type="integer" required=false %}
@@ -77,7 +77,7 @@ The maximum amount of token to be sold when all costs are factored in
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="swap.destinationAddress" type="string" required=true %}
-The wallet to which the token should be deposited
+The wallet to which the `destinationAsset` should be paid to
 {% endapi-method-parameter %}
 {% endapi-method-body-parameters %}
 {% endapi-method-request %}
@@ -98,15 +98,9 @@ If the payment was successful.
         "expiration": { ... }
     }
 }
-```
-{% endapi-method-response-example %}
 
-{% api-method-response-example httpCode=404 %}
-{% api-method-response-example-description %}
-If there was an issue with the call. 
-{% endapi-method-response-example-description %}
+For failures:
 
-```
 {
     "success": false,
     "response": {
@@ -126,29 +120,37 @@ If there was an issue with the call.
 {% tabs %}
 {% tab title="cURL" %}
 ```text
-curl --request POST \
-  --url https://api.totle.com/pay \
-  --header 'content-type: application/json' \
-  --data '{"config":{"exchanges":{"type":""},"transactions":"true","fillNonce":"true","skipBalanceChecks":"false"},"swap":{"sourceAsset":"","destinationAsset":"","destinationAmount":"","maxSource":"","destinationAddress":""}}'
+curl -X POST \
+  https://api.totle.com/pay \
+  -H 'content-type: Application/JSON' \
+  -d '{"swap":{"sourceAsset":"ETH","destinationAsset":"DAI","destinationAmount":"1000000000000000000", "destinationAddress": "0x583d03451406d179182efc742a1d811a9e34c36b"}}'
 ```
 {% endtab %}
 
 {% tab title="Node" %}
 ```javascript
-var request = require("request");
+var request = require("request")
 
+var body = {
+    "swap": {
+        "sourceAsset": "ETH",
+        "destinationAsset": "DAI",
+        "destinationAmount": "1000000000000000000",
+        "destinationAddress": "0x583d03451406d179182efc742a1d811a9e34c36b"
+    }
+}
 var options = {
   method: 'POST',
-  url: 'https://api.totle.com/pay',
+  url: 'https://api.totle.com/swap',
   headers: {'content-type': 'application/json'},
-  body: '{"config":{"exchanges":{"type":""},"transactions":"true","fillNonce":"true","skipBalanceChecks":"false"},"swap":{"sourceAsset":"","destinationAsset":"","destinationAmount":"","maxSource":"","destinationAddress":""}}'
-};
+  body: JSON.stringify(body)
+}
 
 request(options, function (error, response, body) {
-  if (error) throw new Error(error);
+  if (error) throw new Error(error)
 
-  console.log(body);
-});
+  console.log(body)
+})
 ```
 {% endtab %}
 
@@ -156,17 +158,14 @@ request(options, function (error, response, body) {
 ```ruby
 require 'uri'
 require 'net/http'
-require 'openssl'
 
 url = URI("https://api.totle.com/pay")
 
 http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 request = Net::HTTP::Post.new(url)
-request["content-type"] = 'application/json'
-request.body = "{\"config\":{\"exchanges\":{\"type\":\"\"},\"transactions\":\"true\",\"fillNonce\":\"true\",\"skipBalanceChecks\":\"false\"},\"swap\":{\"sourceAsset\":\"\",\"destinationAsset\":\"\",\"destinationAmount\":\"\",\"maxSource\":\"\",\"destinationAddress\":\"\"}}"
+request["content-type"] = 'Application/JSON'
+request.body = "{\"swap\":{\"sourceAsset\":\"ETH\",\"destinationAsset\":\"DAI\",\"destinationAmount\":\"1000000000000000000\", \"destinationAddress\": \"0x583d03451406d179182efc742a1d811a9e34c36b\"}}"
 
 response = http.request(request)
 puts response.read_body
@@ -175,18 +174,19 @@ puts response.read_body
 
 {% tab title="JavaScript" %}
 ```javascript
-var data = "{\"config\":{\"exchanges\":{\"type\":\"\"},\"transactions\":\"true\",\"fillNonce\":\"true\",\"skipBalanceChecks\":\"false\"},\"swap\":{\"sourceAsset\":\"\",\"destinationAsset\":\"\",\"destinationAmount\":\"\",\"maxSource\":\"\",\"destinationAddress\":\"\"}}";
+var data = "{\"swap\":{\"sourceAsset\":\"ETH\",\"destinationAsset\":\"DAI\",\"destinationAmount\":\"1000000000000000000\", \"destinationAddress\": \"0x583d03451406d179182efc742a1d811a9e34c36b\"}}";
 
 var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
 
 xhr.addEventListener("readystatechange", function () {
-  if (this.readyState === this.DONE) {
+  if (this.readyState === 4) {
     console.log(this.responseText);
   }
 });
 
 xhr.open("POST", "https://api.totle.com/pay");
-xhr.setRequestHeader("content-type", "application/json");
+xhr.setRequestHeader("content-type", "Application/JSON");
 
 xhr.send(data);
 ```
@@ -198,8 +198,10 @@ import requests
 
 url = "https://api.totle.com/pay"
 
-payload = "{\"config\":{\"exchanges\":{\"type\":\"\"},\"transactions\":\"true\",\"fillNonce\":\"true\",\"skipBalanceChecks\":\"false\"},\"swap\":{\"sourceAsset\":\"\",\"destinationAsset\":\"\",\"destinationAmount\":\"\",\"maxSource\":\"\",\"destinationAddress\":\"\"}}"
-headers = {'content-type': 'application/json'}
+payload = "{\"swap\":{\"sourceAsset\":\"ETH\",\"destinationAsset\":\"DAI\",\"destinationAmount\":\"1000000000000000000\", \"destinationAddress\": \"0x583d03451406d179182efc742a1d811a9e34c36b\"}}"
+headers = {
+    'content-type': "Application/JSON"
+}
 
 response = requests.request("POST", url, data=payload, headers=headers)
 
