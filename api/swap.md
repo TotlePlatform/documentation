@@ -16,10 +16,6 @@ The endpoint allows you to trade one token for the equivalent value of another t
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-body-parameters %}
-{% api-method-parameter name="swap.destinationAsset" type="string" required=false %}
-Identifier of the token to buy \(either token address or symbol\)
-{% endapi-method-parameter %}
-
 {% api-method-parameter name="apiKey" type="string" required=false %}
 Your Totle partner identifier
 {% endapi-method-parameter %}
@@ -74,6 +70,10 @@ The amount of tokens to sell in the token's base unit of decimals \(**include ei
 
 {% api-method-parameter name="swap.destinationAmount" type="integer" required=true %}
 The amount of tokens to buy in the token's base unit of decimals \(**include either `sourceAmount` OR `destinationAmount`**\) 
+{% endapi-method-parameter %}
+
+{% api-method-parameter name="swap.destinationAsset" type="string" required=false %}
+Identifier of the token to buy \(either token address or symbol\)
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="swap.isOptional" type="boolean" required=false %}
