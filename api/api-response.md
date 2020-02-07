@@ -14,8 +14,6 @@ The summary is a comprehensive breakdown of the transaction where you can get in
 
 The transactions section is a list of complete transaction objects that the end user must sign and submit to the Ethereum blockchain. Approval transactions will be prepended to the array. Sign and submit the transactions as they are ordered in the array. 
 
-
-
 {% hint style="warning" %}
 Modification of the transaction objects is strongly discouraged
 {% endhint %}
@@ -190,46 +188,86 @@ The expiration section contains the expiration block and the estimated expiratio
 {% endtab %}
 
 {% tab title="Parameters List" %}
+## Common Parameter Objects
+
+### `Token Details`
+
 | Parameter | Description |
 | :--- | :--- |
-| summary | user-readable details of all the possible swap orders found \(including the best-possible trading pair and the alternative options\) |
-| sourceAsset | information about the token being sold |
-| address | the token contract address |
-| symbol | the token symbol |
-| decimals | the number of decimals assigned to the token |
-| sourceAmount | the amount of token being sold |
-| destinationAsset | information about the token being purchased |
-| destinationAmount | the amount of token being received |
-| runnerUpRoutes | routes considered by Totle that are not chosen for execution due to |
-| trades | the individual trades that make up the route taken to swap one token to another |
-| orders | the transaction\(s\) needed to fill a trade \(e.g. trading Token A to Token B may require two or more orders\) |
-| exchange | the exchange on which the swap occurs |
-| id | the ID used by Totle to identify the exchange |
-| name | the name of the exchange |
-| fee | information about the fee assessed by the exchange facilitating the transaction |
-| percentage | the fee amount as a percentage of the transaction |
-| amount | the fee amount |
-| asset | information about the token type used to pay the assessed fee |
-| runnerUpOrders | orders considered by Totle that are not chosen for execution due to sub-optimal rates |
-| totleFee | information about the fee assessed by Totle for facilitating the transaction |
-| partnerFee | information about the fee assessed by third-party partners who deploy a partner contract on Totle's platform |
-| transactions | information about the transaction to be submitted |
-| type | the type of transaction to be performed \(e.g., `trade`\) |
-| tx | full transaction object to be signed and included in your wallet |
-| to | contract address to which the token is sent |
-| from | the user's wallet address from which the token originates |
-| value | the value of the token sent |
-| data | encoded payload the contract needs to execute the trades |
-| gas | suggested gas price for the provided payload |
-| gasLimit | maximum gas limit for the payload provided |
-| nonce | the user's wallet transaction count required in every transaction |
-| rateLimit | rate limit information |
-| callsMade | the number of calls you have made |
-| callsLeft | the number of calls you can make before hitting a rate limit |
-| signature | the signed payload that verifies the payload originates from Totle |
-| expiration | information about when the returned payload expires and is no longer valid |
-| blockNumber | the block number in which the returned payload is no longer valid |
-| estimatedTimeSpan | the estimated timestamp \(in seconds\) when `blockNumber` is reached |
+| address | Address of the token |
+| symbol | Symbol of the token |
+| decimals | Number of decimals the token has |
+
+### `Fee Details`
+
+| Parameter | Description |
+| :--- | :--- |
+| percentage | The percentage being used to calculate the fee amount |
+| amount | The fee amount denoted in the `fee.asset` token |
+| asset | `Token Details` of the token which the fee is denoted in |
+
+### `Token Amount Details`
+
+| Parameter | Description |
+| :--- | :--- |
+| sourceAsset | `Token Details` of the token being sold |
+| sourceAmount | Amount of the token being sold |
+| destinationAsset | `Token Details` of the token being bought |
+| destinationAmount | Amount of the token being bought |
+
+### `Route Details` extends `Token Amount Details`
+
+| Parameter | Description |
+| :--- | :--- |
+| baseAsset? | `Token Details` of the token used for a middle trade between `sourceAsset` and `destinationAsset`. May or may not exists |
+
+### `Trade Details` extends `Token Amount Details`
+
+| Parameter | Description |
+| :--- | :--- |
+| orders\[\] | Array of `Order Details` for the main orders that were selected |
+| runnerUpOrders\[\] | Array of `Order Details` for the backup orders that were selected to be used if any of the main orders fail |
+
+### `Order Details` extends `Token Amount Details`
+
+| Parameter | Description  |
+| :--- | :--- |
+| exchange | Details of the exchange the order is for |
+| exchange.id | Id of the order's exchange. List of exchanges can be found [here](https://api.totle.com/exchanges) |
+| exchange.name | Name of the order's exchange |
+| fee | `Fee Details` of the fees taken by the exchange |
+
+## API Parameters
+
+| aParameter | Description |
+| :--- | :--- |
+| success | Whether or not the API response was successful |
+| response | The object that contains the response details |
+| response.id | Unique identifier for this request/response pair |
+| response.summary\[\] | Array of human-readable details of the requested swaps' best route. Contains information in `Route Details` |
+| response.summary\[\].notes\[\] | Array of strings of any extra details  |
+| response.summary\[\].rate | The rate of this swap denoted in `(destinationAmount / (10 ** destinationAsset.decimals)) / (sourceAmount / (10 ** sourceAsset.decimals))` |
+| response.summary\[\].guaranteedRate | Rate that is guaranteed based of the supplied `maxMarketSlippagePercent` |
+| response.summary\[\].market | Details about market `rate` and `slippage`  |
+| response.summary\[\].market.rate | Rate of this swap based on the amount of 0.1 of the source token  |
+| response.summary\[\].market.slippage | Slippage percent based on the swap's `rate` and the market `rate` |
+| response.summary\[\].runnerUpRoutes\[\] | Array of `Route Details` considered by Totle that were not chosen for execution  |
+| response.summary\[\].trades\[\] | Array of `Trade Details` that make up the route  |
+| response.summary\[\].totleFee | `Fee Details` of the fee taken by Totle for facilitating the transaction |
+| response.summary\[\].partnerFee | `Fee Details` of the fee taken by third-party partners who deploy a partner contract on Totle's platform |
+| response.transactions\[\] | Array of transaction objects auto generated to perform the swaps described above in the summary. If multiple transaction objects are returned, the ones preceding the `swap` transaction will be `token approval` transactions |
+| response.transactions\[\].type | The type of transaction to be performed \(e.g., `trade` or `approval`\) |
+| response.transactions\[\].tx | A full auto generated transaction object to be signed and submitted on-chain |
+| response.transactions\[\].tx.to | Contract address to which the transaction is sent to |
+| response.transactions\[\].tx.from | The user's wallet address from which the transaction will originate from |
+| response.transactions\[\].tx.value | The Ether value to be included in the transaction |
+| response.transactions\[\].tx.data | The encoded payload data the contract needs to execute the swaps |
+| response.transactions\[\].tx.gas | The suggested gas price for the transaction payload \(users are strongly discouraged to modify this value\) |
+| response.transactions\[\].tx.gasLimit | The maximum gas limit for the transaction \(users are strongly discouraged to modify this value\) |
+| response.transactions\[\].tx.nonce | The user's wallet transaction count required in every transaction |
+| response.expiration | Information about when the returned payload expires and is no longer valid |
+| response.expiration.blockNumber | The block number in which the returned payload is no longer valid |
+| response.expiration.estimatedTimespam | The estimated timestamp \(in seconds\) when `blockNumber` is reached |
 {% endtab %}
 {% endtabs %}
 
