@@ -267,7 +267,7 @@ The expiration section contains the expiration block and the estimated expiratio
 | response.transactions\[\].tx.nonce | The user's wallet transaction count required in every transaction |
 | response.expiration | Information about when the returned payload expires and is no longer valid |
 | response.expiration.blockNumber | The block number in which the returned payload is no longer valid |
-| response.expiration.estimatedTimespam | The estimated timestamp \(in seconds\) when `blockNumber` is reached |
+| response.expiration.estimatedTimestamp | The estimated timestamp \(in seconds\) when `blockNumber` is reached |
 {% endtab %}
 {% endtabs %}
 
