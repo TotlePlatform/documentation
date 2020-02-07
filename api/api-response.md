@@ -14,8 +14,6 @@ The summary is a comprehensive breakdown of the transaction where you can get in
 
 The transactions section is a list of complete transaction objects that the end user must sign and submit to the Ethereum blockchain. Approval transactions will be prepended to the array. Sign and submit the transactions as they are ordered in the array. 
 
-
-
 {% hint style="warning" %}
 Modification of the transaction objects is strongly discouraged
 {% endhint %}
