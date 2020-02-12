@@ -68,12 +68,8 @@ Identifier of the token to sell \(either token address OR symbol\)
 Identifier of the token to buy \(either token address OR symbol\)
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="swap.sourceAmount" type="integer" required=true %}
-The amount of tokens to sell
-{% endapi-method-parameter %}
-
 {% api-method-parameter name="swap.destinationAmount" type="integer" required=true %}
-The amount of tokens to purchase
+The amount of tokens to be paid to the `destinationAddress`
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="swap.maxSource" type="integer" required=false %}

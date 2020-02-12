@@ -41,7 +41,18 @@ This is an image of what the Totle Widget will look like in your website.
 
 ![](.gitbook/assets/screen-shot-2020-02-06-at-3.37.11-pm.png)
 
-To try out a live Totle Widget, follow this link: **swap.totle.com**
+To try out a live Totle Widget, follow this link: [**widget.totle.com**](https://widget.totle.com)\*\*\*\*
+
+### **FAQ**
+
+**Can I earn fees with the Totle Widget?**   
+Yes. By passing a fee contract into the `partnerContractAddress` parameter, you can earn fees on your Totle Widget swaps. To set up a fee contract, visit the [Totle Console](smart-contract/partner-contracts.md) to deploy your own partner contract or message us at [partners@totle.com](mailto:partners@totle.com) and we can set up a flexible custom contract for you.  
+  
+**Can I view my Totle Widget's transaction activity somewhere?**   
+If you have a fee contract set up, yes. You can check on your fee contract's activity in the [Totle Console](smart-contract/partner-contracts.md).    
+  
+**Can I pre-select which tokens will be trade-able in my Totle Widget?**   
+Yes. By configuring the `soureAssetAddress` and the `destinationAssetAddress` to your desired tokens, you can pre-select which tokens will be trade-able in your widget. 
 
 ### Support
 
