@@ -44,8 +44,8 @@ IDs of the exchanges to whitelist/blacklist. Use /exchanges endpoint for IDs to 
 Whether the exchange\(s\) should be whitelisted/blacklisted. Use `white` for whitelisting and `black` for blacklisting
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="config.transactions" type="boolean" required=false %}
-Whether transactions objects are returned or not. Settings this to `true` will require you to include the address. If you just want to get the rate, set this to `false`
+{% api-method-parameter name="config.transactions" type="boolean" required=true %}
+Whether transactions objects are returned or not. The default setting for this parameter is `false` which will return a quote. Settings this to `true` will execute a transaction and requires you to include the address. We encourage you to only set this to `true` when you intend to submit a trade.
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="config.fillNonce" type="boolean" required=false %}
@@ -69,7 +69,7 @@ The amount of tokens to sell in the token's base unit of decimals \(**include ei
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="swap.destinationAmount" type="integer" required=true %}
-The amount of tokens to buy in the token's base unit of decimals \(**include either `sourceAmount` OR `destinationAmount`**\) 
+The amount of tokens to buy in the token's base unit of decimals \(**include either `sourceAmount` OR `destinationAmount`**\)
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="swap.destinationAsset" type="string" required=false %}
@@ -100,7 +100,7 @@ Your Totle information about the swap \(one or more\) to be executed \(**submit 
 If the swap was successful.
 {% endapi-method-response-example-description %}
 
-```
+```text
 {
     "success": true,
     "response": {
