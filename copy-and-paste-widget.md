@@ -25,6 +25,8 @@ description: >-
 ```
 {% endcode %}
 
+**\*\*\*NOTE - IF YOU ARE USING AN API KEY OR PARTNER CONTRACT: Make sure to surround `apiKey` and `partnerContractAddress` values with quotes.\*\*\***
+
 You will need a `div` with an ID that matches the`nodeId` in the snippet: `totle-widget`
 
 You can do this by copy and pasting the snippet of code below into the `body` section of your HTML where you would like the Widget to appear. 
@@ -52,7 +54,10 @@ Yes. By passing a fee contract into the `partnerContractAddress` parameter, you 
 If you have a fee contract set up, yes. You can check on your fee contract's activity in the [Totle Console](smart-contract/partner-contracts.md).    
   
 **Can I pre-select which tokens will be trade-able in my Totle Widget?**   
-Yes. By configuring the `soureAssetAddress` and the `destinationAssetAddress` to your desired tokens, you can pre-select which tokens will be trade-able in your widget. 
+Yes. By configuring the `soureAssetAddress` and the `destinationAssetAddress` to your desired tokens, you can pre-select which tokens will be trade-able in your widget.
+
+**I have followed the directions but get an error: The address "0xeb6bc0bd26baeee8b6d641eb3ec1f32bcdb3b3c0" is invalid for field "partner contract"?**   
+This is one of the most frequent questions asked by our partners. First thing to do is make sure to surround `apiKey` and `partnerContractAddress` values with quotes.
 
 ### Support
 
