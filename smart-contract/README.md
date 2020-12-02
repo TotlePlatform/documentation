@@ -8,7 +8,7 @@ Totle's suite of smart contracts enables developers to build aggregated token ex
 
 Once you have deployed your own custom partner contract, simply include your partner contract address in the API's`partnerContract` parameter. 
 
-To learn how to customize the your contracts allowances, visit the [settings section](setting-allowances.md).
+To learn how to customize your contracts allowances, visit the [settings section](setting-allowances.md).
 
 {% page-ref page="setting-allowances.md" %}
 
@@ -16,7 +16,7 @@ To generate your own contract with custom fees, [deploy a partner contract](part
 
 {% page-ref page="partner-contracts.md" %}
 
-To use a **live version** of Totle's smart contracts, visit [Totle Swap](https://swap.totle.com).
+To use a **live version** of Totle's smart contracts, visit [Totle Exchange](https://totle.exchange).
 
 ### Support
 

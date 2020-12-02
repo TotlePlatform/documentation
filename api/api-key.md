@@ -1,13 +1,5 @@
 # API Key
 
-**You do not need an API key to start using the Totle API.** 
-
-**However, having an API Key offers you additional benefits such as:**
-
-* No rate limits
-* The ability to earn fees with Totle through custom contracts
-* Extended phone and chat support
-
 ### Sign up for an API Key here:
 
 {% embed url="https://signup.api.totle.com/" %}

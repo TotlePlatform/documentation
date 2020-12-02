@@ -46,6 +46,7 @@ Token information was successfully retrieved.
 | address | The contract address that should be used to identify the token in API calls |
 | decimals | The number of decimal places implemented by the tokens |
 | tradeable | Whether the token can be traded on Totle |
+| iconUrl | The URL of the token icon |
 
 {% tabs %}
 {% tab title="cURL" %}

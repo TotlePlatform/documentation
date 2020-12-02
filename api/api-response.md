@@ -4,7 +4,7 @@ description: Learn about Totle's API response parameters here.
 
 # API Response
 
-The responses of the `swap` and `pay` endpoints are built in an easily understood format with the following sections:
+The response of the `swap` endpoint is built in an easily understood format with the following sections:
 
 ## Summary
 
@@ -219,7 +219,7 @@ The expiration section contains the expiration block and the estimated expiratio
 
 | Parameter | Description |
 | :--- | :--- |
-| baseAsset? | `Token Details` of the token used for a middle trade between `sourceAsset` and `destinationAsset`. May or may not exists |
+| baseAsset? | `Token Details` of the token used for a middle trade between `sourceAsset` and `destinationAsset` |
 
 ### `Trade Details` extends `Token Amount Details`
 
@@ -248,9 +248,6 @@ The expiration section contains the expiration block and the estimated expiratio
 | response.summary\[\].notes\[\] | Array of strings of any extra details  |
 | response.summary\[\].rate | The rate of this swap denoted in `(destinationAmount / (10 ** destinationAsset.decimals)) / (sourceAmount / (10 ** sourceAsset.decimals))` |
 | response.summary\[\].guaranteedRate | Rate that is guaranteed based of the supplied `maxMarketSlippagePercent` |
-| response.summary\[\].market | Details about market `rate` and `slippage`  |
-| response.summary\[\].market.rate | Rate of this swap based on the amount of 0.1 of the source token  |
-| response.summary\[\].market.slippage | Slippage percent based on the swap's `rate` and the market `rate` |
 | response.summary\[\].runnerUpRoutes\[\] | Array of `Route Details` considered by Totle that were not chosen for execution  |
 | response.summary\[\].trades\[\] | Array of `Trade Details` that make up the route  |
 | response.summary\[\].totleFee | `Fee Details` of the fee taken by Totle for facilitating the transaction |

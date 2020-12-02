@@ -16,7 +16,7 @@ The endpoint allows you to trade one token for the equivalent value of another t
 {% api-method-spec %}
 {% api-method-request %}
 {% api-method-body-parameters %}
-{% api-method-parameter name="apiKey" type="string" required=false %}
+{% api-method-parameter name="apiKey" type="string" required=true %}
 Your Totle partner identifier
 {% endapi-method-parameter %}
 
@@ -44,7 +44,7 @@ IDs of the exchanges to whitelist/blacklist. Use /exchanges endpoint for IDs to 
 Whether the exchange\(s\) should be whitelisted/blacklisted. Use `white` for whitelisting and `black` for blacklisting
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="config.transactions" type="boolean" required=true %}
+{% api-method-parameter name="config.transactions" type="boolean" required=false %}
 Whether transactions objects are returned or not. The default setting for this parameter is `false` which will return a quote. Settings this to `true` will execute a transaction and requires you to include the address. We encourage you to only set this to `true` when you intend to submit a trade.
 {% endapi-method-parameter %}
 
@@ -68,20 +68,12 @@ Identifier of the token to sell \(either token address OR symbol\)
 The amount of tokens to sell in the token's base unit of decimals \(**include either `sourceAmount` OR `destinationAmount`**\)
 {% endapi-method-parameter %}
 
-{% api-method-parameter name="swap.destinationAmount" type="integer" required=true %}
-The amount of tokens to buy in the token's base unit of decimals \(**include either `sourceAmount` OR `destinationAmount`**\)
-{% endapi-method-parameter %}
-
 {% api-method-parameter name="swap.destinationAsset" type="string" required=false %}
 Identifier of the token to buy \(either token address or symbol\)
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="swap.isOptional" type="boolean" required=false %}
 If this is `true` then the entire transaction won't revert if this swap fails. Defaults to `false`
-{% endapi-method-parameter %}
-
-{% api-method-parameter name="swap.maxMarketSlippagePercent" type="integer" required=false %}
-Percentage of maximum acceptable market price slippage that can occur based off of 0.1 unit of source token while finding best rates off-chain. Defaults to 10. Value must be between 0-99, inclusive
 {% endapi-method-parameter %}
 
 {% api-method-parameter name="swap.maxExecutionSlippagePercent" type="integer" required=false %}

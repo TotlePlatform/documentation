@@ -7,7 +7,7 @@ Fees are implemented as partner contracts. A partner contract is created by call
 
 When `registerPartner` is called, the registry will emit a `PartnerRegistered(address partnerContract)` event \(where `partnerContract` is the address of the contract you've created\).
 
-When you want to accrue fees, you will include `partnerContract` in your API request to the `/swap` or `/pay` endpoints:
+When you want to accrue fees, you will include `partnerContract` in your API request to the `/swap`endpoint:
 
 ```javascript
 {
@@ -40,10 +40,5 @@ The encoded payload that is returned will include your partner contract. When th
 
 To collect your fees, someone must call the `payout()` function on your partner contract. Anybody can call this, and it will payout the appropriate fees to the `partnerBeneficiary` and to Totle.
 
-The API has a default partner contract with a `partnerPercentage` of 0 and a `totlePercentage` of 0.25% \(which is used when one is not passed to the API\). The fee calculations would then be as follows:
-
-* For direct token pairs where the sourceAsset is swapped for the destinationAsset \(and not through any base pairs\), the fee will be taken from the destinationAsset.
-* For orders where the sourceAsset is swapped for a base asset, then the base asset is swapped for the destinationAsset, the fee will be calculated from the base asset.
-
-**Do these fees not work for your business? Get in contact with us and we'll happily create a custom contract to meet your goals. Email:** [**partners@totle.com**](mailto:partners@totle.com)\*\*\*\*
+The API has a default partner contract with a `partnerPercentage` of 0 and a `totlePercentage` of 0 \(which is used when one is not passed to the API\). The fee calculations would then be as follows:
 

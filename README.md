@@ -24,11 +24,7 @@ Instantly add trading functionality to any web interface. [Totle Widget](copy-an
 
 ## API
 
-The Totle API offers developers a familiar way to integrate aggregated exchange functionality into a product. Execute swaps, send payments, retrieve pricing data on asset pairs, and query exchanges.
-
-To explore API endpoints and become familiar with performing calls, try the [API Explorer](https://explorer.totle.com/). This allows you to interact with a simulation of the Totle API. 
-
-{% page-ref page="api-explorer.md" %}
+The Totle API offers developers a familiar way to integrate aggregated exchange functionality into a product. Execute swaps, retrieve pricing data on asset pairs, and query exchanges.
 
 To view the Totle API endpoints and their parameters as well as learn about response parameters, error messages, and operational details, visit the [API section](api/). 
 
