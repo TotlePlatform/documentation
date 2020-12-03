@@ -30,10 +30,6 @@ To view the Totle API endpoints and learn about response parameters, error messa
 
 {% page-ref page="api/" %}
 
-### Disclaimer
-
-Totle Inc. is not responsible for lost funds and is in no way giving investment advice.
-
 ### Support
 
 If you need help or have some feedback for us, send us a message in the [Totle Telegram](https://t.me/totleinc).
