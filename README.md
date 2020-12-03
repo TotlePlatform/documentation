@@ -26,7 +26,7 @@ Integration requires only a few lines of code to be copied into your HTML.
 
 The Totle API offers developers a familiar way to integrate aggregated exchange functionality into a product. Execute swaps, retrieve pricing data on asset pairs, and query exchanges.
 
-To view the Totle API endpoints and their parameters and learn about response parameters, error messages, and operational details, visit the [API section](api/). 
+To view the Totle API endpoints and learn about response parameters, error messages, and operational details, visit the [API section](api/). 
 
 {% page-ref page="api/" %}
 
