@@ -18,7 +18,7 @@ Instantly add trading functionality to any web interface. [Totle Widget](copy-an
 
 ![](.gitbook/assets/screen-shot-2020-02-06-at-3.37.11-pm.png)
 
-Integration requires only a few lines of code to be copied into your HTML.
+Integration requires only a few lines of code.
 
 {% page-ref page="copy-and-paste-widget.md" %}
 
