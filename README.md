@@ -6,7 +6,7 @@ description: >-
 
 # Overview
 
-Totle is a non-custodial, smart-order routing platform that provides access to all major DeFi liquidity pools via a simple API. Our sophisticated splitting algorithm reviews available liquidity then divides large orders between pools to obtain the best possible execution price in a single order.  
+Totle is a non-custodial, smart-order routing platform that provides access to DeFi liquidity pools via a simple API. Our sophisticated splitting algorithm divides large orders between pools to obtain the best possible execution price in a single order.  
   
 To view Totle's source code visit the [Totle Github page](https://github.com/TotlePlatform). 
 

@@ -10,7 +10,7 @@ To gain access to unlimited API calls and more, you can sign up for an [API Key 
 
 **Base URL:** `https://api.totle.com`
 
-**Live Exchanges on Totle:** [https://api.totle.com/exchanges](https://api.totle.com/exchanges)
+**A List of Live Exchanges on Totle:** [https://api.totle.com/exchanges](https://api.totle.com/exchanges)
 
 ## Totle API Endpoints:
 

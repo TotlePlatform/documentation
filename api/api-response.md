@@ -8,7 +8,7 @@ The response of the `swap` endpoint is built in an easily understood format with
 
 ## Summary
 
-The summary is a comprehensive breakdown of the transaction where you can get information about the trades, orders, exchanges, fees, etc. in a human-readable format.
+The summary is a comprehensive breakdown of the transaction where you can get information about the trades, orders, exchanges, fees, etc. in a human readable format.
 
 ## Transactions
 

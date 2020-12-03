@@ -42,5 +42,3 @@ To collect your fees, someone must call the `payout()` function on your partner 
 
 The API has a default partner contract with a `partnerPercentage` of 0 and a `totlePercentage` of 0 \(which is used when one is not passed to the API\). The fee calculations would then be as follows:
 
-**Email:** [**partners@totle.com**](mailto:partners@totle.com)\*\*\*\*
-
