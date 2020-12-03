@@ -13,7 +13,7 @@ There are no limits on how many partner contracts you can deploy.
 
 The Developer Console only displays transactions where your wallet is either the **creator** or **beneficiary**.
 
-You can link directly to a contract to see the transactions/trigger a payout by going to [https://console.totle.com/contracts/0x0000000000000000000000000000000000000000](https://console.totle.com/contracts/0x0000000000000000000000000000000000000000) and replacing the appended address with your partner contract address
+You can link directly to a contract to see the transactions/trigger a payout by going to [https://console.totle.com/contracts/0x0000000000000000000000000000000000000000](https://console.totle.com/contracts/0x0000000000000000000000000000000000000000) and replacing the appended address with your partner contract
 {% endhint %}
 
 ## Create and Deploy Contracts

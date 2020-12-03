@@ -48,16 +48,16 @@ To try out a live Totle Widget, follow this link: [**widget.totle.com**](https:/
 ### **FAQ**
 
 **Can I earn fees with the Totle Widget?**   
-Yes. By passing a fee contract into the `partnerContractAddress` parameter, you can earn fees on your Totle Widget swaps. To set up a fee contract, visit the [Totle Console](smart-contract/partner-contracts.md) to deploy your own partner contract or message us at [partners@totle.com](mailto:partners@totle.com) and we can set up a flexible custom contract for you.  
+Yes. By adding a fee contract to the `partnerContractAddress` parameter, you can earn fees on your Totle Widget swaps. To set up a fee contract, visit the [Totle Console](smart-contract/partner-contracts.md) to deploy your own partner contract.   
   
 **Can I view my Totle Widget's transaction activity somewhere?**   
-If you have a fee contract set up, yes. You can check on your fee contract's activity in the [Totle Console](smart-contract/partner-contracts.md).    
+If you have a fee contract set up, yes. You can check activity in the [Totle Console](smart-contract/partner-contracts.md).    
   
 **Can I pre-select which tokens will be trade-able in my Totle Widget?**   
 Yes. By configuring the `soureAssetAddress` and the `destinationAssetAddress` to your desired tokens, you can pre-select which tokens will be trade-able in your widget.
 
 **I have followed the directions but get an error: The address "0xeb6bc0bd26baeee8b6d641eb3ec1f32bcdb3b3c0" is invalid for field "partner contract"?**   
-This is one of the most frequent questions asked by our partners. First thing to do is make sure to surround `apiKey` and `partnerContractAddress` values with quotes.
+This is one of the most frequent questions asked by our partners. Please make sure to surround `apiKey` and `partnerContractAddress` values with quotes. 
 
 ### Support
 
