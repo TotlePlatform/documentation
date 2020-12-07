@@ -40,5 +40,7 @@ The encoded payload that is returned will include your partner contract. When th
 
 To collect your fees, someone must call the `payout()` function on your partner contract. Anybody can call this, and it will payout the appropriate fees to the `partnerBeneficiary` and to Totle.
 
-The API has a default partner contract with a `partnerPercentage` of 0 and a `totlePercentage` of 0 \(which is used when one is not passed to the API\). The fee calculations would then be as follows:
+The API has a default partner contract with a `partnerPercentage` of 0 and a `totlePercentage` of 0 \(which is used when one is not passed to the API\). When a fee is selected, a default 50:50 profit split will be applied. If you expect large trading volumes then we're happy to discuss a custom fee structure.  
+
+**Email:** [**partners@totle.com**](mailto:partners@totle.com)\*\*\*\*
 
